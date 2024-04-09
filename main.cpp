@@ -28,7 +28,7 @@ int main() {
 	for (DWORD i = 0; i < count; ++i) {
 		PCREDENTIAL cred = credentials[i];
 		std::wstring name = std::wstring(cred->TargetName);
-		if (name.starts_with(L"MicrosoftAccount:user=")) {
+		if (name.starts_with(L"MicrosoftAccount:user=") || name.starts_with(L"XblGrts") || name.starts_with(L"SSO_POP") || name.starts_with(L"MCL|")) {
 			printf("%ls を削除しました\n", cred->UserName);
 			CredDelete(cred->TargetName, CRED_TYPE_GENERIC, 0);
 		}
